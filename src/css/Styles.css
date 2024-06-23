@@ -1,0 +1,229 @@
+/* Styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: none;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1765ad;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.title {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #5482ad;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.subcontainer {
+    max-width: none;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #97c9fa;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.subcontainerSecondPage {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #97c9fa;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.texto {
+    color: #0e0b0b;
+    font-size: 60px;
+    text-align: center;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 90px;
+}
+
+.img {
+    max-width: 50%;
+    height: 600px;
+    border-radius: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.img:hover {
+    transform: scale(1.05);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #3e8e41;
+    transform: scale(0.98);
+}
+
+.derechos {
+    position: absolute;
+    bottom: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #0e0b0b;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.8); /* Añadido fondo semi-transparente para mejor legibilidad */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.caja {
+    background-color: #eaeef1;
+    color: #0f0f0f;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.form {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #97c9fa;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.form .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form .row div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form .row label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form .row input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.buttonSecondPage {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-top: 10px;
+    color: #fff;
+    background-color: #011122;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttonSecondPage:hover {
+    background-color: #002136;
+}
+
+.buttonmainPage {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-top: 10px;
+    color: #fff;
+    background-color: #011122;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttonmainPage:hover {
+    background-color: #002136;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    font-family: 'Arial', sans-serif;
+}
+
+.menu-header {
+    margin-bottom: 20px;
+}
+
+.menu-title {
+    color: white;
+    font-size: 8em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: -40px;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-button {
+    background-color: #ffffff;
+    color: #4facfe;
+    border: 2px solid #4facfe;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-button:hover {
+    background-color: #4facfe;
+    color: #ffffff;
+}
+
+
