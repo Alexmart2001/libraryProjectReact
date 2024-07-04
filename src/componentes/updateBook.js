@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button, ButtonGroup} from "react-bootstrap";
 
 const UpdateBook = () => {
     const actualizarLibro = () => {
@@ -6,9 +7,10 @@ const UpdateBook = () => {
     };
 
     return (
-        <div className="container">
+        <div className="menu-container">
+
             <header>
-                <div className="title">
+                <div className="titleothers">
                     <h1 className="texto">Actualizar libro</h1>
                 </div>
                 <div className="subcontainerSecondPage">
@@ -61,8 +63,14 @@ const UpdateBook = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className="buttonSecondPage" onClick={() => window.location.href = '/'}>Página principal</button>
-                        <button type="button" className="buttonSecondPage" onClick={actualizarLibro}>Actualizar libro</button>
+                        <ButtonGroup>
+                            <Button className="custom-violent-buttonb" variant="secondary" onClick={() => window.location.href = '/'}>
+                                Página principal
+                            </Button>
+                            <Button className="custom-violent-buttonb" variant="secondary" onClick={actualizarLibro}>
+                                Actualizar libro
+                            </Button>
+                        </ButtonGroup>
                     </div>
                 </div>
             </header>

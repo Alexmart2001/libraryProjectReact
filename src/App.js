@@ -7,6 +7,7 @@ import PrincipalMenu from "./PrincipalMenu";
 import DeleteBook from "./componentes/deleteBook";
 import UpdateBook from "./componentes/updateBook";
 import SearchBook from "./componentes/searchBook";
+import ListBook from "./componentes/ListBooks";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path="/deleteBook" element={<DeleteBook/>}/>
                 <Route path="/updateBook" element={<UpdateBook/>}/>
                 <Route path="/searchBook" element={<SearchBook/>}/>
+                <Route path="/listBook" element={<ListBook/>}/>
             </Routes>
         </Router>
     );

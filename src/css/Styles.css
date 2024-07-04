@@ -1,28 +1,102 @@
-/* Styles.css */
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
 
 .container {
-    max-width: none;
-    margin: 0 auto;
+    width: 100%;
+    height: 100vh; /* 100% del viewport height */
     padding: 20px;
     background-color: #1765ad;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    max-width: 900px;
+    padding: 20px;
+    background-color: deepskyblue;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin-top: -80px;
     border-radius: 20px;
 }
 
-.title {
+.titleothers {
     max-width: 900px;
-    margin: 0 auto;
     padding: 20px;
-    background-color: #5482ad;
+    background-color: deepskyblue;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin: 30px auto;
+    border-radius: 40px;
+}
+
+.subcontainermain {
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #97c9fa;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.custom-violent-button {
+    width: 400px;
+    margin: 10px;
+}
+
+.buttonmainPage {
+    margin-top: 20px;
+}
+
+.custom-violent-button {
+    background-color: #4CAF50;
+    border-color: #f4f4f4;
+    color: #4CAF50;
+    font-weight: bold;
+    border-width: 3px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-violent-button:hover {
+    background-color: #007bff;
+    border-color: white;
+    transform: scale(1.1);
+}
+
+.custom-violent-button:disabled {
+    background-color: #4CAF50;
+    border-color: #ffcccc;
+    color: #666666;
+}
+
+.custom-violent-buttonb {
+    background-color: #000000;
+    border-color: #f4f4f4;
+    color: #f4f4f4;
+    font-weight: bold;
+    border-width: 3px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-violent-buttonb:hover {
+    background-color: #666666;
+    border-color: black;
+    transform: scale(1.1);
+}
+
+.custom-violent-buttonb:disabled {
+    background-color: #4CAF50;
+    border-color: #ffcccc;
+    color: #666666;
 }
 
 .subcontainer {
@@ -40,14 +114,49 @@ body {
 }
 
 .subcontainerSecondPage {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #97c9fa;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #1e3a5f;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
+    color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.subcontainerSecondPage:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.subcontainerSecondPage h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #cfe2f3;
+}
+
+.subcontainerSecondPage p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #e1ebf5;
+}
+
+.subcontainerSecondPage .button {
+    background-color: #4facfe;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+}
+
+.subcontainerSecondPage .button:hover {
+    background-color: #00f2fe;
+    transform: scale(1.05);
 }
 
 .texto {
@@ -55,6 +164,7 @@ body {
     font-size: 60px;
     text-align: center;
 }
+
 
 .images {
     display: flex;
@@ -97,7 +207,7 @@ button:active {
 
 .derechos {
     position: absolute;
-    bottom: -90px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -183,26 +293,9 @@ button:active {
     background-color: #002136;
 }
 
-.menu-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    font-family: 'Arial', sans-serif;
-}
 
-.menu-header {
-    margin-bottom: 20px;
-}
 
-.menu-title {
-    color: white;
-    font-size: 8em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-top: -40px;
-}
+
 
 .menu-buttons {
     display: flex;
@@ -225,5 +318,121 @@ button:active {
     background-color: #4facfe;
     color: #ffffff;
 }
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1765ad; /* Color de fondo */
+    z-index: -1; /* Asegura que esté detrás de los contenidos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #4facfe;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
 
+.footer-container {
+    position: relative;
+    margin-top: 20px;
+    height: 200px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    max-width: 100%; /* Ancho máximo */
+    margin: 0 auto; /* Margen automático para centrar */
+}
+
+.footer-container p {
+    margin: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+}
+
+.menu-header {
+    margin-bottom: 20px;
+}
+
+.menu-title {
+    color: white;
+    font-size: 8em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: -40px;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.carousel-container {
+    width: 30%;
+}
+
+.carousel-image-container {
+    width: 100%;
+    padding-top: 130%;
+    position: relative;
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button {
+    background-color: #ffffff;
+    color: #4facfe;
+    border: 2px solid #4facfe;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    width: 250px;
+}
+
+.menu-button:hover {
+    background-color: #4facfe;
+    color: #ffffff;
+}
