@@ -60,11 +60,7 @@ const LibraryCore = () => {
                 alert(rta.data.info);
                 console.log("No se ha podido crear el registro");
             } else {
-                toast.success(rta.data.info, {
-                    position: "top-center",
-                    autoClose: 3000,
-                });
-
+                alert(rta.data.info)
                 clearForm();
             }
         } catch (error) {
