@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './css/Styles.css';
 
 const Home = () => {
@@ -9,6 +11,13 @@ const Home = () => {
     const PrincipalMenu = () => {
         navigate('/principalMenu');
     };
+
+    useEffect(() => {
+        toast.success('Bienvenido a tu biblioteca', {
+            position: "top-center",
+            autoClose: 3000,
+        });
+    }, []);
 
     return (
         <div className="menu-container">
@@ -19,60 +28,56 @@ const Home = () => {
                     </div>
                 </header>
 
-                    <div className="card-container">
-                        <Card style={{width: '18rem', marginBottom: '20px'}} className="custom-violent-button"
-                              border="green">
-                            <Card.Img variant="top" src="/images/1.jpg" alt="Cien años de soledad"/>
-                            <Card.Body>
-                                <Card.Title>Cien años de soledad</Card.Title>
-                                <Card.Text>
-                                    Una obra maestra de la literatura latinoamericana.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
+                <div className="card-container">
+                    <Card style={{width: '18rem', marginBottom: '20px'}} className="custom-violent-button" border="green">
+                        <Card.Img variant="top" src="/images/1.jpg" alt="Cien años de soledad"/>
+                        <Card.Body>
+                            <Card.Title>Cien años de soledad</Card.Title>
+                            <Card.Text>
+                                Una obra maestra de la literatura latinoamericana.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
 
-                        <Card style={{width: '18rem', marginBottom: '20px'}} className="custom-violent-button"
-                              border="green">
-                            <Card.Img variant="top" src="/images/2.jpg" alt="Relato de un naufragio"/>
-                            <Card.Body>
-                                <Card.Title>Relato de un naufragio</Card.Title>
-                                <Card.Text>
-                                    Una historia de supervivencia en alta mar.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
+                    <Card style={{width: '18rem', marginBottom: '20px'}} className="custom-violent-button" border="green">
+                        <Card.Img variant="top" src="/images/2.jpg" alt="Relato de un naufragio"/>
+                        <Card.Body>
+                            <Card.Title>Relato de un naufragio</Card.Title>
+                            <Card.Text>
+                                Una historia de supervivencia en alta mar.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
 
-                        <Card style={{width: '18rem', marginBottom: '20px'}} className="custom-violent-button"
-                              border="green">
-                            <Card.Img variant="top" src="/images/3.jpg" alt="Historia de Colombia"/>
-                            <Card.Body>
-                                <Card.Title>Historia de Colombia</Card.Title>
-                                <Card.Text>
-                                    Una mirada profunda a la historia del país.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
+                    <Card style={{width: '18rem', marginBottom: '20px'}} className="custom-violent-button" border="green">
+                        <Card.Img variant="top" src="/images/3.jpg" alt="Historia de Colombia"/>
+                        <Card.Body>
+                            <Card.Title>Historia de Colombia</Card.Title>
+                            <Card.Text>
+                                Una mirada profunda a la historia del país.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
 
-                        <Card style={{width: '18rem', marginBottom: '20px'}} className="custom-violent-button"
-                              border="green">
-                            <Card.Img variant="top" src="/images/4.jpg" alt="El amor en los tiempos del cólera"/>
-                            <Card.Body>
-                                <Card.Title>El amor en los tiempos del cólera</Card.Title>
-                                <Card.Text>
-                                    Una historia de amor y enfermedad en tiempos difíciles.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
-
-                    <button className="custom-violent-buttonb" onClick={PrincipalMenu}>MENU PRINCIPAL</button>
-
+                    <Card style={{width: '18rem', marginBottom: '20px'}} className="custom-violent-button" border="green">
+                        <Card.Img variant="top" src="/images/4.jpg" alt="El amor en los tiempos del cólera"/>
+                        <Card.Body>
+                            <Card.Title>El amor en los tiempos del cólera</Card.Title>
+                            <Card.Text>
+                                Una historia de amor y enfermedad en tiempos difíciles.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
                 </div>
 
-                    <footer>
-                        <p className="derechos">2024 - Alexander Martinez - Derechos reservados &copy; 2024</p>
-                    </footer>
+                <button className="custom-violent-buttonb" onClick={PrincipalMenu}>MENU PRINCIPAL</button>
 
+                <ToastContainer />
+            </div>
+
+            <footer>
+                <p className="derechos">2024 - Alexander Martinez - Derechos reservados &copy; 2024</p>
+            </footer>
         </div>
     );
 };

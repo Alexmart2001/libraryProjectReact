@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import {Button, ButtonGroup} from "react-bootstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
+import iAx from "../ConfigAXIOS";
+import '../css/Styles.css';
 
 const SearchBook = () => {
     const [searchResult, setSearchResult] = useState(null);
     const [formData, setFormData] = useState({
-        titulo: '',
+        isbn: '',
         autor: '',
         tema: ''
     });
@@ -14,29 +16,52 @@ const SearchBook = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const buscarLibro = () => {
-        console.log('Buscando libro...');
-        // Aquí iría la lógica para buscar el libro en la base de datos
-        // Ejemplo de resultado de búsqueda
-        const result = {
-            titulo: formData.titulo || 'Título del Libro',
-            autor: formData.autor || 'Autor del Libro',
-            tema: formData.tema || 'Tema del Libro',
-            isbn: '1234567890',
-            medio: 'Físico',
-            ubicacion: 'Estante A1',
-            fechaedicion: '2020-01-01',
-            numeropaginas: 300,
-            cantidadejemplares: 10,
-            disponibles: 5,
-            resumen: 'Este es un resumen del libro...'
-        };
-        setSearchResult(result);
+    async function getLibro() {
+        try {
+            const data = {
+                isbn: formData.isbn,
+                autor: formData.autor,
+                tema: formData.tema
+            };
+
+            const rta = await iAx.post('/getLibro', JSON.stringify(data));
+            console.log("Registro: " + JSON.stringify(data));
+            console.log("Cant. registros:", Array.isArray(rta.data.info) ? rta.data.info.length : 'No es un array');
+            console.log("status ----> " + rta.status);
+
+            if (rta.data.msg === "ER") {
+                alert(rta.data.info);
+                setSearchResult(null);
+            } else if (rta.data.info.length > 0) {
+                const book = rta.data.info[0];
+                setSearchResult({
+                    titulo: book.titulo,
+                    autor: book.autor,
+                    tema: book.tema,
+                    isbn: book.isbn,
+                    medio: book.medio,
+                    ubicacion: book.ubicacion,
+                    fechaedicion: new Date(book.fechaedicion).toLocaleDateString(),
+                    numeropaginas: book.numeropaginas,
+                    cantidadejemplares: book.cantidadejemplares,
+                    disponibles: book.disponibles,
+                    resumen: book.resumen
+                });
+            } else {
+                alert("No se encontraron resultados.");
+                setSearchResult(null);
+            }
+        } catch (error) {
+            console.log("ERROR: " + error.message);
+        }
+    }
+
+    const handleSearch = () => {
+        getLibro();
     };
 
     return (
         <div className="menu-container">
-
             <header>
                 <div className="titleothers">
                     <h1 className="texto">Buscar libro</h1>
@@ -46,24 +71,43 @@ const SearchBook = () => {
                         <div className="form">
                             <div className="row">
                                 <div>
-                                    <label htmlFor="titulo" className="rojo">Título: </label>
-                                    <input type="text" name="titulo" placeholder="Buscar..." value={formData.titulo} onChange={handleChange} />
+                                    <label htmlFor="isbn" className="rojo">ISBN: </label>
+                                    <input
+                                        type="text"
+                                        name="isbn"
+                                        placeholder="Digita..."
+                                        value={formData.isbn}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                                 <div>
                                     <label htmlFor="autor" className="rojo">Autor: </label>
-                                    <input type="text" name="autor" placeholder="Buscar..." value={formData.autor} onChange={handleChange} />
+                                    <input
+                                        type="text"
+                                        name="autor"
+                                        placeholder="Digita..."
+                                        value={formData.autor}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                                 <div>
                                     <label htmlFor="tema" className="rojo">Tema: </label>
-                                    <input type="text" name="tema" placeholder="Buscar..." value={formData.tema} onChange={handleChange} />
+                                    <input
+                                        type="text"
+                                        name="tema"
+                                        placeholder="Digita..."
+                                        value={formData.tema}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                             </div>
                         </div>
                         <ButtonGroup>
-                            <Button className="custom-violent-buttonb" variant="secondary" onClick={() => window.location.href = '/'}>
+                            <Button className="custom-violent-buttonb" variant="secondary"
+                                    onClick={() => window.location.href = '/'}>
                                 Página principal
                             </Button>
-                            <Button className="custom-violent-buttonb" variant="secondary"  onClick={buscarLibro}>
+                            <Button className="custom-violent-buttonb" variant="secondary" onClick={handleSearch}>
                                 Buscar libro
                             </Button>
                         </ButtonGroup>
@@ -86,7 +130,6 @@ const SearchBook = () => {
                     </div>
                 </div>
             </header>
-
         </div>
     );
 };

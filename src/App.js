@@ -8,6 +8,8 @@ import DeleteBook from "./componentes/deleteBook";
 import UpdateBook from "./componentes/updateBook";
 import SearchBook from "./componentes/searchBook";
 import ListBook from "./componentes/ListBooks";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App = () => {
@@ -22,6 +24,7 @@ const App = () => {
                 <Route path="/searchBook" element={<SearchBook/>}/>
                 <Route path="/listBook" element={<ListBook/>}/>
             </Routes>
+            <ToastContainer/>
         </Router>
     );
 };

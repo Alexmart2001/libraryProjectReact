@@ -1,9 +1,45 @@
-import React from 'react';
-import {Button, ButtonGroup} from "react-bootstrap";
+import React, { useState } from 'react';
+import { Button, ButtonGroup } from "react-bootstrap";
+import iAx from "../ConfigAXIOS";
 
-const deleteBook = () => {
-    const eliminarLibro = () => {
-        console.log('Libro eliminado');
+const DeleteBook = () => {
+    const [formValues, setFormValues] = useState({
+        isbn: '',
+        autor: '',
+        tema: '',
+        medio: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+    };
+
+    const clearForm = () => {
+        setFormValues({
+            isbn: '',
+            autor: '',
+            tema: '',
+            medio: ''
+        });
+    };
+
+    const deleteLibro = async () => {
+        try {
+            const data = { isbn: formValues.isbn };
+            const rta = await iAx.post('/delLibro', JSON.stringify(data));
+            console.log("rta ----> " + JSON.stringify(rta));
+            console.log("Cantidad registros ----> ", Array.isArray(rta.data.info) ? rta.data.info.length : 'No es un array');
+            if (rta.data.msg === "ER") {
+                alert(rta.data.info);
+                console.log("No se ha podido eliminar el registro");
+            } else {
+                alert("Se ha eliminado correctamente el registro");
+                clearForm();
+            }
+        } catch (error) {
+            console.log("ERROR: " + error.message);
+        }
     };
 
     return (
@@ -17,20 +53,20 @@ const deleteBook = () => {
                         <div className="form">
                             <div className="row">
                                 <div>
-                                    <label htmlFor="titulo" className="rojo">Título: </label>
-                                    <input type="text" name="titulo" placeholder="Buscar..."/>
+                                    <label htmlFor="isbn" className="rojo">ISBN: </label>
+                                    <input type="text" name="isbn" value={formValues.isbn} onChange={handleChange} placeholder="Digita..." />
                                 </div>
                                 <div>
                                     <label htmlFor="autor" className="rojo">Autor: </label>
-                                    <input type="text" name="autor" placeholder="Buscar..."/>
+                                    <input type="text" name="autor" value={formValues.autor} onChange={handleChange} placeholder="Digita..." />
                                 </div>
                                 <div>
                                     <label htmlFor="tema" className="rojo">Tema: </label>
-                                    <input type="text" name="tema" placeholder="Buscar..."/>
+                                    <input type="text" name="tema" value={formValues.tema} onChange={handleChange} placeholder="Digita..." />
                                 </div>
                                 <div>
                                     <label htmlFor="medio" className="rojo">Tipo de medio del ejemplar: </label>
-                                    <input type="text" name="medio" placeholder="(fisico o electrónico)"/>
+                                    <input type="text" name="medio" value={formValues.medio} onChange={handleChange} placeholder="(fisico o electrónico)" />
                                 </div>
                             </div>
                         </div>
@@ -38,7 +74,7 @@ const deleteBook = () => {
                             <Button className="custom-violent-buttonb" variant="secondary" onClick={() => window.location.href = '/'}>
                                 Página principal
                             </Button>
-                            <Button className="custom-violent-buttonb" variant="secondary" onClick={eliminarLibro}>
+                            <Button className="custom-violent-buttonb" variant="secondary" onClick={deleteLibro}>
                                 Eliminar libro
                             </Button>
                         </ButtonGroup>
@@ -49,4 +85,4 @@ const deleteBook = () => {
     );
 };
 
-export default deleteBook;
+export default DeleteBook;

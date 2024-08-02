@@ -227,6 +227,56 @@ button:active {
     margin: 10px;
 }
 
+.resultado {
+    font-family: Arial, sans-serif;
+    color: #000000;
+    background-color: #0056b3; /* Asegúrate de que el fondo sea blanco para el bloque de resultados */
+    padding: 15px; /* Añade un poco de padding */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 10px; /* Esquinas redondeadas */
+    margin: 20px 0; /* Espacio superior e inferior */
+}
+
+
+.resultado h2 {
+    color: #f4f4f4;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.resultado p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.custom-modal {
+    background-color: white;
+    padding: 20px;
+    max-width: 500px;
+    margin: 100px auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.custom-overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.custom-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.custom-button:hover {
+    background-color: #45a049;
+}
+
+
 .form {
     max-width: 1000px;
     margin: 0 auto;
