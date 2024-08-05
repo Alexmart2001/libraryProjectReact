@@ -10,13 +10,17 @@ import SearchBook from "./componentes/searchBook";
 import ListBook from "./componentes/ListBooks";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import AuthHandler from "./AuthHandler";
+import Pag2 from "./componentes/LoginError";
 
 
 const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home/>}/>
+                <Route path="/" element={<AuthHandler/>}/>
+                <Route path="/home" element={<Home/>}/>
+                <Route path="/AuthError" element={<Pag2/>}/>
                 <Route path="/RegisterBook" element={<LibraryCore/>}/>
                 <Route path="/principalMenu" element={<PrincipalMenu/>}/>
                 <Route path="/deleteBook" element={<DeleteBook/>}/>
